@@ -6,7 +6,7 @@ fs.readFile('po_step1.json', 'utf8', function(err, data) {
 
   let objMap = {};
 //Loop through table data i.e rowset
-     tableData.forEach(element => {
+    const rowSet =  tableData.map(element => {
        //Loop in the nested object of each row.
        for (const key in element) {
          //Validate the key if its not undefined
@@ -15,6 +15,8 @@ fs.readFile('po_step1.json', 'utf8', function(err, data) {
            objMap[element[key].title] = element[key].value;
          }
        }
-       console.log(objMap);
+       // console.log(objMap);
+       return objMap;
           });
+          console.log(rowSet);
 })
